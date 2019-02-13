@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'botoes_page.dart';
+import 'cards_page.dart';
+import 'listas_page.dart';
 
 class HomePage extends StatefulWidget{
   @override
@@ -14,7 +16,7 @@ class HomePage extends StatefulWidget{
     Widget build(BuildContext context){
       return new Scaffold(
         appBar: new AppBar(
-          title:  new Text("Isso ai cara"),
+          title:  new Text("Main Page"),
           backgroundColor: Colors.red ,
         ),
         drawer: new Drawer(
@@ -49,12 +51,30 @@ class HomePage extends StatefulWidget{
                     new ListTile(
                   title: new Text("Listas"),
                   trailing: new Icon(Icons.arrow_forward),
+                  onTap: (){
+                    Navigator.of(context).pop();
+                    Navigator.of(context).push(new MaterialPageRoute(builder:(BuildContext context)=> new ListasPage())
+                    );
+                  },
                 ),
                 new Divider(),
                     new ListTile(
                   title: new Text("cards"),
                   trailing: new Icon(Icons.arrow_forward),
+                  onTap: (){
+                    Navigator.of(context).pop();
+                    Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=> new CardsPages())
+                    );
+                  },
                 ),
+                new Divider(),
+                new ListTile(
+                  title: new Text('cancelar'),
+                  trailing: new Icon(Icons.close),
+                  onTap: (){
+                    Navigator.of(context).pop();
+                  },
+                )
             ],
           ),
         ),
